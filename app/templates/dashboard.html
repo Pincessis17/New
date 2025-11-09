@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Dashboard</h1>
+  {% if session.get('user') %}
+    <p>Welcome, {{ session.user.name }} ({{ session.user.email }})</p>
+  {% else %}
+    <p>You are not logged in.</p>
+  {% endif %}
+  <ul>
+    <li><a href="{{ url_for('sales.sales_home') }}">Sales</a></li>
+    <li><a href="{{ url_for('inventory.inventory_home') }}">Inventory</a></li>
+    <li><a href="{{ url_for('reports.reports_home') }}">Reports</a></li>
+  </ul>
+{% endblock %}
